@@ -1,0 +1,65 @@
+-- Question 1
+SELECT last_name from actor where last_name = 'Wahlberg';
+-- Answer: 2
+
+
+-- Question 2
+SELECT customer_id, amount FROM payment WHERE amount >= 3.99 AND amount <= 5.99;
+-- Answer: 5607 payments 
+
+-- Question 3
+SELECT film_id, COUNT(film_id) 
+FROM inventory  GROUP BY film_id
+HAVING COUNT (film_id)=( 
+SELECT MAX(mycount) 
+FROM ( 
+SELECT film_id, COUNT(film_id) mycount 
+FROM inventory
+GROUP BY film_id) as foo);
+-- Answer: 
+select * from 
+
+-- Question 4
+SELECT last_name from customer where last_name = 'William';
+-- Answer: 0
+
+-- Question 5
+SELECT staff_id, COUNT(rental_id)
+FROM rental
+GROUP BY staff_id
+HAVING COUNT (rental_id)=( 
+SELECT MAX(mycount) 
+FROM ( 
+SELECT staff_id, COUNT(rental_id) mycount 
+FROM rental
+GROUP BY staff_id) as foo);
+-- Answer: 1 : 8040
+
+-- Question 6
+SELECT COUNT( DISTINCT district) as dis
+FROM address;
+-- Answer: 378
+
+-- Question 7
+SELECT film_id, COUNT(film_id)
+FROM film_actor
+GROUP BY film_ID
+HAVING COUNT(film_id)=(
+SELECT MAX(mycount)
+FROM (
+SELECT film_id, COUNT(actor_id) mycount
+FROM film_actor
+GROUP BY film_id) as foo);
+-- Answer: 508 : 15
+
+-- Question 8
+SELECT store_id, last_name FROM customer WHERE last_name LIKE '%es' and store_id=1;
+-- Answer: 13
+
+-- Question 9
+
+-- Answer: I was lost with this question and wasnt sure where to begin. 
+
+-- Question 10
+select * from store_id;
+-- Answer: 
